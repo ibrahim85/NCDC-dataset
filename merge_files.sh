@@ -11,22 +11,7 @@
 #-------------------------------------------------------------------
 #!/bin/bash
 
-FOLDER='/home/gad/data'
-ANOTHER='/home/gad/data'
-
-for X in $(seq 2000 2016); do
-        cd $ANOTHER/gsod_$X/$X
-
-	for f in $ANOTHER/gsod_$X/$X/*.op.gz
-	do 
-		gunzip $f
-		#echo "done: '"$f"' "
-	done 
-
 	list=(*.op)
-	head -1 420270-99999-$X.op > all-$X.op;
-	tail -q -n +2 "${list[@]}" >> all-$X.op
-
-done
-
+	head -1 all-2000.op > india_all_stations.op;
+	tail -q -n +2 "${list[@]}" >> india_all_stations.op
 
